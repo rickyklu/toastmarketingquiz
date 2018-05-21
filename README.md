@@ -26,6 +26,7 @@ We should be able to simply run `git clone`, `npm install && npm start` in order
   1.  ES6 friendly syntax in development.
 
 * Bonus
+
   1.  Use an IP Lookup or similar to initially load the weather of the visitor's location.
   1.  Use React or Vue components on the page.
   1.  The forecast should have personalized icons based on the result (Sunny day shows sunny icon for example).
