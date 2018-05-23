@@ -12,8 +12,8 @@ We should be able to simply run `git clone`, `npm install && npm start` in order
 
 * Set up:
 
-1.  Styling must be written in Sass/SCSS, and using a compiler such as Gulp to pipe to CSS.
-1.  ES6 friendly syntax in development.
+1.  Styling must be written in Sass/SCSS, and use a compiler such as Gulp to pipe to CSS.
+1.  ES6 syntax in development.
 
 * API Requirements
 
@@ -23,7 +23,7 @@ We should be able to simply run `git clone`, `npm install && npm start` in order
 * Page requirements:
 
   1.  Site must be mobile responsive.
-  1.  ES6 friendly syntax in development.
+  1.  Javascript on the page should follow cross-browser compatibility best practices
 
 * Bonus
 
@@ -31,3 +31,5 @@ We should be able to simply run `git clone`, `npm install && npm start` in order
   1.  Use React or Vue components on the page.
   1.  The forecast should have personalized icons based on the result (Sunny day shows sunny icon for example).
   1.  How can the page be best optimized for SEO from a front-end perspective?
+
+If you get stuck along the way, feel free to move forward to the next part. Include any notes on where you stopped, and any details in an email along with submission.
