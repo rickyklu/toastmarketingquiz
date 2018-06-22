@@ -6,26 +6,26 @@ This should be made using Node and Express(or similar), with a front end templat
 
 Please clone (don't fork) this repo to get started, and send us a link to your repo when finished.
 
-We should be able to simply run `git clone`, `npm install && npm start` in order to see your project
+Final project should be sent as a github repo, and a github.io or similar live page.
 
 ## Requirments
 
-* Set up:
+- Set up:
 
 1.  Styling must be written in Sass/SCSS, and use a compiler such as Gulp to pipe to CSS.
 1.  ES6 syntax in development.
 
-* API Requirements
+- API Requirements
 
   1.  API key must not be exposed on the page
   1.  User should be able to enter a zip code and get weather results.
 
-* Page requirements:
+- Page requirements:
 
   1.  Site must be mobile responsive.
   1.  Javascript on the page should follow cross-browser compatibility best practices
 
-* Bonus
+- Bonus
 
   1.  Use an IP Lookup or similar to initially load the weather of the visitor's location.
   1.  Use React or Vue components on the page.
