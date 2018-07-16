@@ -31,5 +31,6 @@ Final project should be sent as a github repo, and a github.io or similar live p
   1.  Use React or Vue components on the page.
   1.  The forecast should have personalized icons based on the result (Sunny day shows sunny icon for example).
   1.  How can the page be best optimized for SEO from a front-end perspective?
+  1.  Any extra flair or features you like!
 
 If you get stuck along the way, feel free to move forward to the next part. Include any notes on where you stopped, and any details in an email along with submission.
