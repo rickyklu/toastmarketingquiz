@@ -12,16 +12,16 @@ A single page app that displays this week's weather, using [Dark Sky's](https://
 
 ## Development Instructions
 
-- Set up -
+###Set up
 
 1. Clone/pull repo
 2. Run `npm install` to install dependencies
 3. Set up the keys (see below)
 
-- Usage -
+###Usage
 
-* `npm run dev`: runs react front end (created by create-react-app) and express backend concurrently
-* `keys.js`: a key file to determine which keys to use. For your own development, create a `dev.js`, file with javascript object containing the propprietary key
+- `npm run dev`: runs react front end (created by create-react-app) and express backend concurrently
+- `keys.js`: a key file to determine which keys to use. For your own development, create a `dev.js`, file with javascript object containing the propprietary key
 
 ## Built using
 
@@ -29,6 +29,12 @@ A single page app that displays this week's weather, using [Dark Sky's](https://
 - (React via create-react-app)[https://github.com/facebook/create-react-app]
 - [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 - [Google Places API](https://developers.google.com/places/web-service/autocomplete)
+
+## Known bugs/issues/improvements
+
+- Currently have 2 copies of the `/config` keys directory (one for the express server, one for the React client). That means updating 2 sets of keys files. Should make the keys system environment variables
+- When you type out a location and hit enter, it does not submit a request to pull that location's weather. It only works if you select a location from the drop down that appears.
+- Web page responsiveness could be improved (use a library like Bootstrap or Semantic UI?)
 
 # License
 
