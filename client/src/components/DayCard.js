@@ -1,5 +1,7 @@
+/* DayCard.js - component for displaying the weather info for that day */
 import React from 'react';
 
+// helper function to conver time
 const timeConverter = UNIX_timestamp => {
 	var a = new Date(UNIX_timestamp * 1000);
 	var months = [
@@ -32,6 +34,7 @@ const timeConverter = UNIX_timestamp => {
 	};
 };
 
+// component that displays each day's forecast card
 const DayCard = ({
 	time,
 	icon,

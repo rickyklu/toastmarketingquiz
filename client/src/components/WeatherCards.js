@@ -1,4 +1,4 @@
-/* Component for housing each day's weather card */
+/* Component for containing the weather cards and form*/
 import React, { Component } from 'react';
 import axios from 'axios';
 import DayCard from './DayCard';
@@ -17,7 +17,7 @@ class WeatherCards extends Component {
 	}
 
 	async componentDidMount() {
-		// call weather pull weather info for 42.346383, -71.097025 Fenway Park (on first load)
+		// call weather pull weather info for 42.346383, -71.097025, Fenway Park, on first page load
 		await axios.get('/api/weather/42.346383,-71.097025').then(res => {
 			this.setState({
 				forecast: res.data.data.slice(0, 3)

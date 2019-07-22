@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+$break-small: 576px;
+$break-med: 768px;
+$break-lg: 992px;
+$break-xlg: 1200px;
+
 * {
 	box-sizing: border-box;
 }
@@ -22,11 +27,15 @@ body,
 	flex-direction: column;
 
 	.weatherCards {
-		max-width: 90%;
+		width: 90%;
 		border: 1px solid #888;
 		border-radius: 5px;
 		display: flex;
 		flex-direction: column;
+
+		@media screen and (max-width: 768px) {
+			height: 100%;
+		}
 
 		.titleContainer {
 			display: flex;
@@ -42,9 +51,13 @@ body,
 				align-items: center;
 				margin-bottom: 5px;
 
-				.invalidZip {
-					color: red;
-					font-weight: bold;
+				.locationForm {
+					width: 80%;
+
+					.locationInput {
+						width: 80%;
+						margin-left: 10px;
+					}
 				}
 			}
 
@@ -66,6 +79,12 @@ body,
 			background-color: #eee;
 			padding: 5px;
 
+			@media screen and (max-width: 768px) {
+				height: 100%;
+				flex-direction: column;
+				overflow: auto;
+			}
+
 			.dayCardContainer {
 				width: 33%;
 				height: 100%;
@@ -76,6 +95,15 @@ body,
 				flex-direction: column;
 				background-color: #555;
 				color: #fff;
+
+				@media screen and (max-width: 768px) {
+					width: 100%;
+					align-items: center;
+				}
+
+				p {
+					margin: 5px 0 5px 0;
+				}
 
 				.dayText {
 					font-weight: bold;
@@ -109,3 +137,15 @@ body,
 		}
 	}
 }
+
+// @media screen and (max-width: 768px) {
+// 	.cardContainer {
+// 		height: 100%;
+// 		flex-direction: column;
+
+// 		.dayCardContainer {
+// 			width: 100%;
+// 			align-items: center;
+// 		}
+// 	}
+// }

@@ -1,22 +1,22 @@
+/* LocationForm.js - handles the form functionality
+ */
 import React, { Component } from 'react';
 import keys from '../config/keys';
 
-//Import React Scrit Libraray to load Google object
+//Import React Script Libraray to load Google object
 import Script from 'react-load-script';
 
 class LocationForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			inputField: '',
-			lng: '',
-			lat: '',
-			formatted_address: ''
+			inputField: ''
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleScriptLoad = this.handleScriptLoad.bind(this);
 		this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
+		this.cleanLocation = this.cleanLocation.bind(this);
 	}
 
 	handleChange(e) {
@@ -27,9 +27,6 @@ class LocationForm extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		let gps = `${this.state.lat},${this.state.lng}`;
-		this.props.getForecast(gps);
-		this.props.getLocation(this.state.formatted_address);
 	}
 
 	handleScriptLoad() {
@@ -48,13 +45,28 @@ class LocationForm extends Component {
 	async handlePlaceSelect() {
 		// Extract location From Address Object
 		let addressObject = await this.autocomplete.getPlace();
-		console.log(addressObject);
 		if (addressObject) {
+			console.log(addressObject);
 			let lat = addressObject.geometry.location.lat();
 			let lng = addressObject.geometry.location.lng();
+			let gps = `${lat},${lng}`;
 			let formatted_address = addressObject.formatted_address;
-			this.setState({ lat, lng, formatted_address });
+
+			// update input text to be the same as selected autocomplete dropdown
+			this.setState({
+				inputField: this.cleanLocation(addressObject.adr_address)
+			});
+			this.props.getForecast(gps);
+			this.props.getLocation(formatted_address);
 		}
+	}
+
+	// helper function to remove all the html tags that are returned from addressObject.adr_address
+	cleanLocation(address) {
+		let temp = document.createElement('span');
+		temp.innerHTML = address;
+		let sanitized = temp.textContent || temp.innerText;
+		return sanitized;
 	}
 
 	render() {
@@ -66,10 +78,9 @@ class LocationForm extends Component {
 					}&libraries=places`}
 					onLoad={this.handleScriptLoad}
 				/>
-				<form onSubmit={this.handleSubmit}>
+				<form className="locationForm" onSubmit={this.handleSubmit}>
 					<label htmlFor="locationInput">Enter location:</label>
 					<input
-						autoFocus
 						name="locationInput"
 						className="locationInput"
 						id="searchBar"
@@ -77,7 +88,6 @@ class LocationForm extends Component {
 						value={this.state.inputField}
 						onChange={this.handleChange}
 					/>
-					<button type="submit">Submit</button>
 				</form>
 			</div>
 		);
