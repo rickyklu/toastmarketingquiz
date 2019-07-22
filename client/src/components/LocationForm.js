@@ -46,7 +46,6 @@ class LocationForm extends Component {
 		// Extract location From Address Object
 		let addressObject = await this.autocomplete.getPlace();
 		if (addressObject) {
-			console.log(addressObject);
 			let lat = addressObject.geometry.location.lat();
 			let lng = addressObject.geometry.location.lng();
 			let gps = `${lat},${lng}`;

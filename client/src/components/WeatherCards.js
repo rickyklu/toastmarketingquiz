@@ -22,8 +22,6 @@ class WeatherCards extends Component {
 			this.setState({
 				forecast: res.data.data.slice(0, 3)
 			});
-			// testing: console logs weather
-			console.log(res.data);
 		});
 	}
 

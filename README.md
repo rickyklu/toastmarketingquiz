@@ -1,42 +1,41 @@
-# Toast Marketing Front End Web Developer (Attempt by Ricky Lu)
+# Weather Forecast Lookup
 
-The goal of this case study is to create a web page that displays this week's weather, using [Dark Sky's](https://darksky.net/dev) API.
+A single page app that displays this week's weather, using [Dark Sky's](https://darksky.net/dev) API. Made using ExpressJS, React, and Google Places API as an assignment for the Toast Front End Developer Quiz.
 
-This should be made using Node and Express(or similar), with a front end templating language for dynamic assets. Twig is preferred, but EJS/Jade/Handlebars/etc also works.
+## User Instructions
 
-Please clone (don't fork) this repo to get started, and send us a link to your repo when finished.
+- Visit the working demo page
+- Page should automatically pull up the weather forecast for the next 3 days for Boston, MA (by default)
+- To begin using, enter the location you want to get the weather (you can enter zip code, or city/town name)
+- A list of results should begin appearing as you type. Click on the location result you want to get the weather results for
+- The weather information should update with the 3 day forecast for the selected location
 
-Final project should be sent as a github repo, and a github.io or similar live page.
+## Development Instructions
 
-## Requirments
+- Set up -
 
-- Set up:
+1. Clone/pull repo
+2. Run `npm install` to install dependencies
+3. Set up the keys (see below)
 
-1.  Styling must be written in Sass/SCSS, and use a compiler such as Gulp to pipe to CSS.
-1.  ES6 syntax in development.
+- Usage -
 
-- API Requirements
+* `npm run dev`: runs react front end (created by create-react-app) and express backend concurrently
+* `keys.js`: a key file to determine which keys to use. For your own development, create a `dev.js`, file with javascript object containing the propprietary key
 
-  1.  API key must not be exposed on the page
-  1.  User should be able to enter a zip code and get weather results.
+## Built using
 
-- Page requirements:
+- [Dark Sky API](https://darksky.net/dev)
+- (React via create-react-app)[https://github.com/facebook/create-react-app]
+- [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/get-api-key)
+- [Google Places API](https://developers.google.com/places/web-service/autocomplete)
 
-  1.  Site must be mobile responsive.
-  1.  Javascript on the page should follow cross-browser compatibility best practices
+# License
 
-- Bonus
+The MIT License (MIT)
 
-  1.  Use an IP Lookup or similar to initially load the weather of the visitor's location.
-  1.  Use React or Vue components on the page.
-  1.  The forecast should have personalized icons based on the result (Sunny day shows sunny icon for example).
-  1.  How can the page be best optimized for SEO from a front-end perspective?
-  1.  Any extra flair or features you like!
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-If you get stuck along the way, feel free to move forward to the next part. Include any notes on where you stopped, and any details in an email along with submission.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-## Development Usage
-
-- `npm run dev`: runs react front end (created by create-react-app) and express backend
-- `keys.js`: a key file to determine which keys to use
-- To use for your own development, create a `dev.js`, file with javascript object containing the propprietary key
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
