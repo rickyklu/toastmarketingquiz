@@ -6,7 +6,9 @@ function App() {
 	return (
 		<div className="container">
 			<WeatherCards />
-			<a href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
+			<a href="https://darksky.net/poweredby/">
+				Weather API Powered by Dark Sky
+			</a>
 		</div>
 	);
 }

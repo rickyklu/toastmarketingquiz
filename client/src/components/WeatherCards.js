@@ -63,7 +63,7 @@ class WeatherCards extends Component {
 			<div className="weatherCards">
 				<div className="titleContainer">
 					<h3 className="locationTitle">
-						Weather for zip code ${this.state.zipcode}
+						Weather for zip code {this.state.zipcode}
 					</h3>
 					<LocationForm getForecast={this.getForecast} />
 				</div>

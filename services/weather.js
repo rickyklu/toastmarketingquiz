@@ -7,11 +7,11 @@ const keys = require('../config/keys');
 // const baseUrl = `https://api.darksky.net/forecast/${keys.darkSkyKey}/`;
 
 // zipcode 02115 (Boston) by default
-function weather(zipCode = '02115') {
+function weather(zipCode) {
 	const options = {
 		zip: zipCode,
-		DarkSkyKey: keys.darkSkyKey,
-		ZipCodeApiKey: keys.zipCodeKey
+		DarkSkyKey: keys.darkSkyKey /*,
+		ZipCodeApiKey: keys.zipCodeKey*/
 	};
 
 	return getTheWeather(options)

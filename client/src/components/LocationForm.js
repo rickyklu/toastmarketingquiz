@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+//Import React Scrit Libraray to load Google object
+import Script from 'react-load-script';
+
 class LocationForm extends Component {
 	constructor(props) {
 		super(props);
