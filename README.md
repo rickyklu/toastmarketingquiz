@@ -1,10 +1,10 @@
 # Weather Forecast Lookup
 
-A single page app that displays this week's weather, using [Dark Sky's](https://darksky.net/dev) API. Made using ExpressJS, React, and Google Places API as an assignment for the Toast Front End Developer Quiz.
+A simple single page app that displays a 3 day weather forecast, using [Dark Sky's](https://darksky.net/dev) API. Made using ExpressJS, React, and Google Places API as an assignment for the Toast Front End Developer Quiz.
 
 ## User Instructions
 
-- Visit the working demo page
+- Visit the [production page](https://dry-wildwood-98890.herokuapp.com/)
 - Page should automatically pull up the weather forecast for the next 3 days for Boston, MA (by default)
 - To begin using, enter the location you want to get the weather (you can enter zip code, or city/town name)
 - A list of results should begin appearing as you type. Click on the location result you want to get the weather results for
@@ -12,16 +12,16 @@ A single page app that displays this week's weather, using [Dark Sky's](https://
 
 ## Development Instructions
 
-###Set up
+### Set up
 
 1. Clone/pull repo
 2. Run `npm install` to install dependencies
 3. Set up the keys (see below)
 
-###Usage
+### Usage
 
 - `npm run dev`: runs react front end (created by create-react-app) and express backend concurrently
-- `keys.js`: a key file to determine which keys to use. For your own development, create a `dev.js`, file with javascript object containing the propprietary key
+- `/config`: a directory containing "key" files to determine which keys to use (similar to environment variables). For your own development, create a `dev.js`, file with javascript object containing the propprietary key in the same directory as `key.js` and `prod.js`. For production update `prod.js` with the system environment variables you define.
 
 ## Built using
 
@@ -30,11 +30,12 @@ A single page app that displays this week's weather, using [Dark Sky's](https://
 - [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 - [Google Places API](https://developers.google.com/places/web-service/autocomplete)
 
-## Known bugs/issues/improvements
+## Known bugs/issues/potential improvements
 
 - Currently have 2 copies of the `/config` keys directory (one for the express server, one for the React client). That means updating 2 sets of keys files. Should make the keys system environment variables
 - When you type out a location and hit enter, it does not submit a request to pull that location's weather. It only works if you select a location from the drop down that appears.
 - Web page responsiveness could be improved (use a library like Bootstrap or Semantic UI?)
+- User experience: a delay between the title changing the location and the weather information updating caused by 2 separate calls: one call to the Google Places API (updates the title location) and a following call to the Dark Sky that later updates the weather information
 
 # License
 
