@@ -9,15 +9,16 @@ class WeatherCards extends Component {
 		super(props);
 		this.state = {
 			forecast: [],
-			zipcode: '02115'
+			formatted_address: 'Boston, MA'
 		};
 		this.populateDayCards = this.populateDayCards.bind(this);
 		this.getForecast = this.getForecast.bind(this);
+		this.getLocation = this.getLocation.bind(this);
 	}
 
 	async componentDidMount() {
-		// call weather pull weather info (zipcode 02115 on first load)
-		await axios.get('/api/weather/02115').then(res => {
+		// call weather pull weather info for 42.346383, -71.097025 Fenway Park (on first load)
+		await axios.get('/api/weather/42.346383,-71.097025').then(res => {
 			this.setState({
 				forecast: res.data.data.slice(0, 3)
 			});
@@ -26,13 +27,20 @@ class WeatherCards extends Component {
 		});
 	}
 
-	async getForecast(zipcode) {
-		let url = `/api/weather/${zipcode}`;
+	// takes long, lat coords as a comma separated string, gets the forecast for location
+	async getForecast(gps) {
+		let url = `/api/weather/${gps}`;
 		await axios.get(url).then(res => {
 			this.setState({
-				forecast: res.data.data.slice(0, 3),
-				zipcode: zipcode
+				forecast: res.data.data.slice(0, 3)
 			});
+		});
+	}
+
+	// get the city + state for the title
+	getLocation(formatted_address) {
+		this.setState({
+			formatted_address
 		});
 	}
 
@@ -63,9 +71,12 @@ class WeatherCards extends Component {
 			<div className="weatherCards">
 				<div className="titleContainer">
 					<h3 className="locationTitle">
-						Weather for zip code {this.state.zipcode}
+						Weather for: {`${this.state.formatted_address}`}
 					</h3>
-					<LocationForm getForecast={this.getForecast} />
+					<LocationForm
+						getForecast={this.getForecast}
+						getLocation={this.getLocation}
+					/>
 				</div>
 				<div className="cardContainer">{this.populateDayCards()}</div>
 			</div>

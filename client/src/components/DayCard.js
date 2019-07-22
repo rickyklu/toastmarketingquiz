@@ -73,7 +73,7 @@ const DayCard = ({
 			</span>
 			<p>Humidity: {Math.round(humidity * 100)}%</p>
 			<p>UV Index: {uvIndex}</p>
-			<p>Chance of Rain: {precipProbability * 100}%</p>
+			<p>Chance of Rain: {Math.round(precipProbability * 100)}%</p>
 			<p>Dew Point: {Math.round(dewPoint)}°F</p>
 		</div>
 	);

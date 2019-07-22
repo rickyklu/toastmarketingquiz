@@ -1,21 +1,11 @@
-/*
-source: https://github.com/jasonericball/get-the-weather
-*/
-
-const getTheWeather = require('get-the-weather');
+const axios = require('axios');
 const keys = require('../config/keys');
-// const baseUrl = `https://api.darksky.net/forecast/${keys.darkSkyKey}/`;
 
-// zipcode 02115 (Boston) by default
-function weather(zipCode) {
-	const options = {
-		zip: zipCode,
-		DarkSkyKey: keys.darkSkyKey /*,
-		ZipCodeApiKey: keys.zipCodeKey*/
-	};
-
-	return getTheWeather(options)
-		.then(result => result)
+function weather(gps) {
+	const url = `https://api.darksky.net/forecast/${keys.darkSkyKey}/${gps}`;
+	return axios
+		.get(url)
+		.then(res => res.data)
 		.catch(err => console.log(`err: ${err}`));
 }
 

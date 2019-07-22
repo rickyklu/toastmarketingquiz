@@ -10,9 +10,9 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/api/weather/:zip', async (req, res) => {
-	const zipcode = req.params.zip;
-	const result = await weather(zipcode)
+app.get('/api/weather/:gps', async (req, res) => {
+	const gps = req.params.gps;
+	const result = await weather(gps)
 		.then(response => {
 			return response.daily;
 		})

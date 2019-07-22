@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import keys from '../config/keys';
 
 //Import React Scrit Libraray to load Google object
 import Script from 'react-load-script';
@@ -7,56 +8,77 @@ class LocationForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			zipCode: '',
-			errorZipCode: false
+			inputField: '',
+			lng: '',
+			lat: '',
+			formatted_address: ''
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleScriptLoad = this.handleScriptLoad.bind(this);
+		this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
 	}
 
 	handleChange(e) {
 		this.setState({
-			zipCode: e.target.value,
-			errorZipCode: false
+			inputField: e.target.value
 		});
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
+		let gps = `${this.state.lat},${this.state.lng}`;
+		this.props.getForecast(gps);
+		this.props.getLocation(this.state.formatted_address);
+	}
 
-		/* check for valid zipcode before getting location's forecast */
-		let reg = /^[0-9]{5}$/gm; // numbers only
-		if (reg.test(this.state.zipCode)) {
-			this.props.getForecast(this.state.zipCode);
-		} else {
-			console.log('ERROR INVALID ZIP CODE');
-			this.setState({
-				errorZipCode: true
-			});
+	handleScriptLoad() {
+		// Declare Options For Autocomplete
+		var options = { types: ['(regions)'] };
+
+		// Initialize Google Autocomplete
+		/*global google*/
+		this.autocomplete = new google.maps.places.Autocomplete(
+			document.getElementById('searchBar'),
+			options
+		); // Fire Event when a suggested name is selected
+		this.autocomplete.addListener('place_changed', this.handlePlaceSelect);
+	}
+
+	async handlePlaceSelect() {
+		// Extract location From Address Object
+		let addressObject = await this.autocomplete.getPlace();
+		console.log(addressObject);
+		if (addressObject) {
+			let lat = addressObject.geometry.location.lat();
+			let lng = addressObject.geometry.location.lng();
+			let formatted_address = addressObject.formatted_address;
+			this.setState({ lat, lng, formatted_address });
 		}
 	}
 
 	render() {
 		return (
 			<div className="weatherForm">
+				<Script
+					url={`https://maps.googleapis.com/maps/api/js?key=${
+						keys.googlePlacesKey
+					}&libraries=places`}
+					onLoad={this.handleScriptLoad}
+				/>
 				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="zipcode">Enter Zip Code:</label>
+					<label htmlFor="locationInput">Enter location:</label>
 					<input
-						name="zipcode"
-						className="zipInput"
+						autoFocus
+						name="locationInput"
+						className="locationInput"
+						id="searchBar"
 						type="text"
-						value={this.state.zipCode}
+						value={this.state.inputField}
 						onChange={this.handleChange}
-						maxLength="5"
-						placeholder="5 Digit Zip Code"
 					/>
 					<button type="submit">Submit</button>
 				</form>
-				{this.state.errorZipCode ? (
-					<div className="invalidZip">Error: enter valid 5 digit zip code</div>
-				) : (
-					<span />
-				)}
 			</div>
 		);
 	}
