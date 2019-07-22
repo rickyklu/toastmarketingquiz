@@ -26,7 +26,7 @@ A simple single page app that displays a 3 day weather forecast, using [Dark Sky
 ## Built using
 
 - [Dark Sky API](https://darksky.net/dev)
-- (React via create-react-app)[https://github.com/facebook/create-react-app]
+- [React via create-react-app](https://github.com/facebook/create-react-app)
 - [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 - [Google Places API](https://developers.google.com/places/web-service/autocomplete)
 
