@@ -1,4 +1,4 @@
-# Toast Marketing Front End Web Developer
+# Toast Marketing Front End Web Developer (Attempt by Ricky Lu)
 
 The goal of this case study is to create a web page that displays this week's weather, using [Dark Sky's](https://darksky.net/dev) API.
 
@@ -34,3 +34,9 @@ Final project should be sent as a github repo, and a github.io or similar live p
   1.  Any extra flair or features you like!
 
 If you get stuck along the way, feel free to move forward to the next part. Include any notes on where you stopped, and any details in an email along with submission.
+
+## Development Usage
+
+- `npm run dev`: runs react front end (created by create-react-app) and express backend
+- `keys.js`: a key file to determine which keys to use
+- To use for your own development, create a `dev.js`, file with javascript object containing the propprietary key
