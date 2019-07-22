@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 // service that combines Dark Sky API + zip code to GPS coords
 const weather = require('./services/weather');
@@ -20,6 +21,14 @@ app.get('/api/weather/:gps', async (req, res) => {
 
 	res.send(result);
 });
+
+if (process.env.NODE_ENV === 'production') {
+	// express serves production assets (i.e. main.js, main.css)
+	app.use(express.static('client/build'));
+	app.get('*', (req, res) => {
+		res.sendFile(path.join(__dirname + '/client/build/index.html'));
+	});
+}
 
 app.listen(PORT, process.env.IP, function() {
 	console.log('server is running... on port ', PORT);
