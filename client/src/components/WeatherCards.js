@@ -18,7 +18,6 @@ class WeatherCards extends Component {
 
 	async componentDidMount() {
 		// to delete
-		process.env.NODE_ENV === 'production';
 		console.log(' react using production');
 		console.log(process.env.DARK_SKY_KEY);
 		console.log(process.env.GOOGLE_PLACES_KEY);
