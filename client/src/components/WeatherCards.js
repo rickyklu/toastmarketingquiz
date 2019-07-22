@@ -17,6 +17,13 @@ class WeatherCards extends Component {
 	}
 
 	async componentDidMount() {
+		// to delete
+		process.env.NODE_ENV === 'production';
+		console.log(' react using production');
+		console.log(process.env.DARK_SKY_KEY);
+		console.log(process.env.GOOGLE_PLACES_KEY);
+		// to delete
+
 		// call weather pull weather info for 42.346383, -71.097025, Fenway Park, on first page load
 		await axios.get('/api/weather/42.346383,-71.097025').then(res => {
 			this.setState({

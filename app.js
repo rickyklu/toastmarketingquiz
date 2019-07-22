@@ -28,9 +28,6 @@ if (process.env.NODE_ENV === 'production') {
 	app.get('*', (req, res) => {
 		res.sendFile(path.join(__dirname + '/client/build/index.html'));
 	});
-	console.log('using production');
-	console.log(process.env.DARK_SKY_KEY);
-	console.log(process.env.GOOGLE_PLACES_KEY);
 }
 
 app.listen(PORT, process.env.IP, function() {
